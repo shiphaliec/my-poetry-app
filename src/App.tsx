@@ -169,7 +169,10 @@ const globalStyles = `
   }
 
   @media (max-width: 640px) {
-    .about-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr;
+                  justify-items:center;
+                  text-align: center; 
+                }
     .nav-inner  { padding: 1rem 1.5rem !important; }
     .nav-links  { gap: 1.2rem !important; }
   }
@@ -433,10 +436,13 @@ function About() {
           
           {/* ✅ Aesthetic Image Added Here */}
           <div style={{
-            width: 180,
+            width: 160,
             height: 200,
             aspectRatio: '3 / 4',
             border: '1px solid rgba(200,164,90,0.8)',
+            display:'flex', alignItems:'center',
+            background: 'rgba(255,255,255,0.02)',
+            margin:'0 auto',
             overflow: 'hidden',
             
           }}>
