@@ -27,8 +27,8 @@ const COLORS = {
 
 const poems: Poem[] = [
   {
-    id: 6,
-    num: '006',
+    id: 7,
+    num: '007',
     title: 'The Borrow',
     date: 'Sept 9, 2025',
     excerpt: 'Ek udhar, mere seene ka bhaar.....',
@@ -51,6 +51,34 @@ const poems: Poem[] = [
       'yaad dilaya sabne meri hi haqiqat mujhe baar-baar,',
       'tabhi toh-', 
       'woh ek udhar, aaj tak hai mere seene ka bhaar....',
+    ],
+  },
+  {
+    id: 6,
+    num: '006',
+    title: 'The Lock Story',
+    date: 'Sept 8, 2025',
+    excerpt: 'Yeh kaisa taala hai, uski yeh kaisi chaabhi.....',
+    lines: [
+      'Yeh kaisa taala hai, uski yeh kaisi chaabhi ,',
+      'Koshishein bahut ki maine par, mujhse khula na kabhi ,', 
+      'Purane daur ki baat hai ,', 'par lagta hai aisa ki, waqt guzra ho abhi ,', 
+      'Yaad dhundhli padh gayi jaise, baat bhuli na ho kabhi ,', 
+      'Woh sunsaan pal ,', 'paas ke baagon ka phool ,', 
+      'raat ki chamak aur, chai ki mehak, band kitaab mein hai dabi ,', 
+      'Sard ka kohra, us mard ka chehra ,', 'mere darwaaze par woh pehra ,',
+      'yun kitabon ka dhera , jise le gaya woh behra ,',
+      'diya usne zakhm mujhe jo gehra ,', 'yun usne muh phera tha jabhi ,',
+      'gira gale se gamcha tabhi ,', 'maine uthaya use , jaise gira ho mere liye hi ,','',
+      'Chupaya use sabki nazaron se ,', 'Dabaya use sabki khabron se,',
+      'band kiya ek taale se ,', 'rakh diya dur is maale(ghar ki chatt) se ,','',
+      'Waqt guzra - daur beetein, bakse pe padhti rahi yaadon ki cheetein (aansoon) ,', '',
+      'Khol raha hai man mera us taale ko,', 'kaanp raha hai tan mera leke us chabhi ko ,',
+      'Jangh lagi hai taale ko, waise hi uski chabhi bhi ,',
+      'Sochti hui main, ki khol ke kuch paaungi nahi ,',
+      'Woh saamne aa bhi jaye, toh bhi uske pass ab jaungi nahi,',
+      'Toh phirr, yeh kaisa taala, aur uski yeh kaisi chaabhi.......',
+
     ],
   },
   {
