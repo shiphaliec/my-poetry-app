@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Archive from './Archive'
 import Footer from './Footer';
 import poetImg from './assets/my-photo.jpeg';
@@ -527,19 +527,26 @@ function About() {
 
 export default function App() {
   const [page, setPage] = useState<Page>('hero')
+  const topRef = useRef<HTMLDivElement>(null)   // ← add this
 
   const navigate = (p: Page) => {
     setPage(p)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+
+  useEffect(() => {
+    topRef.current?.scrollIntoView()   // ← scrolls to the div
+  }, [page])
+
 
   return (
     <>
       <style>{globalStyles}</style>
       <Navbar page={page} setPage={navigate} />
-      {page === 'hero'    && <Hero    setPage={navigate} />}
-      {page === 'archive' && <Archive />}
-      {page === 'about'   && <About   />}
+      <div  key = {page} ref={topRef}>
+        {page === 'hero'    && <Hero    setPage={navigate} />}
+        {page === 'archive' && <Archive />}
+        {page === 'about'   && <About   />}
+      </div>
       <Footer/>
     </>
   )
