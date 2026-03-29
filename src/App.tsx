@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Archive from './Archive'
+import Footer from './Footer';
 import poetImg from './assets/my-photo.jpeg';
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -30,7 +31,21 @@ const globalStyles = `
     font-weight: 300;
     line-height: 1.8;
     overflow-x: hidden;
+    overflow-y:auto;
+    height:100%;
     min-height: 100vh;
+    overscroll-behavior:none;
+  }
+
+  html {
+  background: #1a1410;
+  height: 100%;
+  overflow:hidden;
+  }
+
+  body {
+  background: #1a1410;
+  min-height: 100vh;
   }
 
   #root { min-height: 100vh; }
@@ -180,6 +195,7 @@ const globalStyles = `
   @media (max-width: 640px) {
   .about-grid { grid-template-columns: 1fr; }
   .archive-grid { grid-template-columns: 1fr; }  /* ← add this line */
+  .footer-grid { grid-template-columns: 1fr !important; }  /* ← added */
   .nav-inner  { padding: 1rem 1.5rem !important; }
   .nav-links  { gap: 1.2rem !important; }
 }
@@ -524,6 +540,7 @@ export default function App() {
       {page === 'hero'    && <Hero    setPage={navigate} />}
       {page === 'archive' && <Archive />}
       {page === 'about'   && <About   />}
+      <Footer/>
     </>
   )
 }
