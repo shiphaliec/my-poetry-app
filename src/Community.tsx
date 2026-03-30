@@ -453,6 +453,8 @@ function PostForm({ onPost, onSuccess }: {
         borderRadius: 12, padding: '2rem',
         display: 'flex', flexDirection: 'column', gap: '1.2rem',
         maxWidth: 560,
+        margin: '0 auto',
+        alignSelf: 'center',
       }}>
         <div style={{ fontSize: '1rem', fontWeight: 500, color: C.text, marginBottom: '0.2rem' }}>
           Share your poem
