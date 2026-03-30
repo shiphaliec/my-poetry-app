@@ -42,7 +42,7 @@ const poems: Poem[] = [
       'Taale pe jangh , aur khud se khud ki jung ,','Samay ne kiya jo tang, zindagi se udd gaye saare rang ,',
       'Jeevan hua bedhang, magar maine koshishon se banai ek surang ,','',
       'Surang mein mile purane gam ,', 'aaj bhi hain woh mere hum-dum , ','',
-      'Toh diya mujhko , main rok na paaya khudko ,', 'Nikal gayi jb cheekh , maangi maine apne jaan ki bheekh ,',
+      'Tod diya mujhko , main rok na paaya khudko ,', 'Nikal gayi jb cheekh , maangi maine apne jaan ki bheekh ,',
       'Rukhsat hua mera har dard , phir chala gaya woh humdard ,', 'Wahaan se, jahaan tha -',
       'Mere man ka woh band darwaaza ,', 'Jahaan zakham gehre the aur ghaav taaza....',
     ],
