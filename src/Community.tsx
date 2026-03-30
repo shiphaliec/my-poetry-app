@@ -458,7 +458,7 @@ function PostForm({ onPost, onSuccess }: {
           Share your poem
         </div>
         <p style={{ fontSize: '0.82rem', color: C.muted, lineHeight: 1.6, marginTop: '-0.5rem' }}>
-          Your poem will be visible to all visitors. You'll receive a delete key after posting.
+          Your poem will be visible to all visitors. 
         </p>
 
         <div>
