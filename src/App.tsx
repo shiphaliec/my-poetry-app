@@ -243,8 +243,9 @@ function Navbar({ page, setPage }: { page: Page; setPage: (p: Page) => void }) {
   const links: [Page, string][] = [
     ['hero',      'Home'],
     ['archive',   'Archive'],
-    ['about',     'About'],
     ['community', 'Community'],
+    ['about',     'About'],
+    
   ]
 
   const navigate = (p: Page) => {
@@ -607,10 +608,10 @@ export default function App() {
       <div  key = {page} ref={topRef}>
         {page === 'hero'    && <Hero    setPage={navigate} />}
         {page === 'archive' && <Archive />}
-        {page === 'about'   && <About   />}
         {page === 'community' && <Community/> }
-      </div>
-      <Footer/>
+        {page === 'about'   && <About   />}
+      </div>  
+      {page !== 'community' && <Footer />}
     </>
   )
 }
