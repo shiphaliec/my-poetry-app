@@ -194,7 +194,6 @@ const globalStyles = `
               }
   .archive-grid { grid-template-columns: 1fr; }  /* ← add this line */
   .footer-grid { grid-template-columns: 1fr !important; }  /* ← added */
-  .community-grid  { grid-template-columns: 1fr !important; }
   .starpoet-grid   { grid-template-columns: 1fr !important; }  ← add this
   .nav-inner  { padding: 1rem 1.5rem !important; }
   .nav-links  { gap: 1.2rem !important; }

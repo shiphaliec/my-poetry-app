@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { db } from './firebase'
+import StarPoet from './StarPoet'
 import {
   collection,
   addDoc,
@@ -14,6 +15,7 @@ import {
   getDoc,
   setDoc,
 } from 'firebase/firestore'
+
 
 // ── Design tokens — modern & clean ─────────────────────────────────────────
 
@@ -409,7 +411,7 @@ function PoemViewModal({
 
 function PostForm({ onPost, onSuccess }: {
   onPost: (title: string, name: string, lines: string[]) => Promise<string>
-  onSuccess: () => void
+  onSuccess: (name: string) => void 
 }) {
   const [title,        setTitle]        = useState('')
   const [name,         setName]         = useState('')
@@ -512,7 +514,7 @@ function PostForm({ onPost, onSuccess }: {
         <RulesModal onCancel={() => setShowRules(false)} onConfirm={handleConfirm} />
       )}
       {showKey && (
-        <KeyModal deleteKey={generatedKey} onDone={() => { setShowKey(false); onSuccess() }} />
+        <KeyModal deleteKey={generatedKey} onDone={() => { setShowKey(false); onSuccess }} />
       )}
     </>
   )
@@ -648,6 +650,7 @@ export default function Community() {
   const [tab,        setTab]        = useState<Tab>('read')
   const [selected,   setSelected]   = useState<CommunityPoem | null>(null)
   const [ownerMode,  setOwnerMode]  = useState(false)
+  const [currentUserName, setCurrentUserName] = useState('')
 
   // Owner mode via Ctrl + Shift + O
   useEffect(() => {
@@ -696,6 +699,9 @@ export default function Community() {
           )}
         </div>
       </div>
+
+      {/* Star Poet Section */}
+      <StarPoet poems={poems} currentUserName={currentUserName} />
 
       {/* Tabs */}
       <div style={{
@@ -770,7 +776,7 @@ export default function Community() {
       {tab === 'post' && (
         <PostForm
           onPost={postPoem}
-          onSuccess={() => setTab('read')}
+          onSuccess={(name) => { setCurrentUserName(name); setTab('read') }}
         />
       )}
 
