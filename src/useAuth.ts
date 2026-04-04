@@ -5,8 +5,8 @@ import {
   GoogleAuthProvider,
   signOut as firebaseSignOut,
   onAuthStateChanged,
-  User,
 } from 'firebase/auth'
+import type {User} from 'firebase/auth'
 import {
   doc,
   getDoc,

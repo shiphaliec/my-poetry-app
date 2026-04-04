@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, Fragment } from 'react'
 import Archive from './Archive'
 import Footer from './Footer';
 import Community from './Community';
@@ -89,15 +89,15 @@ const globalStyles = `
 
   .nav-btn {
     font-family: 'Inconsolata', monospace;
-    font-size: 0.72rem;
+    font-size: 1rem;
     font-weight: 300;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     color: #7a6e5f;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 0.45rem 0.75rem;
     transition: color 0.3s;
   }
   .nav-btn:hover, .nav-btn.active { color: #c8a45a; }
@@ -199,9 +199,21 @@ const globalStyles = `
   .diary-grid      { grid-template-columns: 1fr !important; } 
   .nav-inner  { padding: 1rem 1.5rem !important; }
   .nav-links  { gap: 1.2rem !important; }
-  .nav-desktop     { display: none !important; }
-  .nav-mobile-btn  { display: flex !important; }
-  .nav-mobile-menu { display: flex !important; }
+  .nav-desktop     { 
+    display: flex !important;
+    gap: 0.45 !important;
+    flex-wrap:wrap;
+    justify-content:center;
+    }
+  .nav-desktop span{
+    font-size:0.6rem !important;
+  }
+  .nav-btn{
+    font-size: 0.78rem;
+    padding: 0.3rem 0.45rem;
+  }
+  
+ 
 }
 `
 
@@ -241,7 +253,7 @@ function PoemLines({ lines }: { lines: string[] }) {
 // ── Navbar ─────────────────────────────────────────────────────────────────
 
 function Navbar({ page, setPage }: { page: Page; setPage: (p: Page) => void }) {
-  const [menuOpen, setMenuOpen] = useState(false)
+ 
   const links: [Page, string][] = [
     ['hero',          'Home'],
     ['archive',       'Archive'],
@@ -250,7 +262,7 @@ function Navbar({ page, setPage }: { page: Page; setPage: (p: Page) => void }) {
     ['about',         'About'],
   ]
 
-  const navigate = (p: Page) => { setPage(p); setMenuOpen(false) }
+  const navigate = (p: Page) => { setPage(p);  }
 
   return (
     <nav style={{
@@ -291,60 +303,24 @@ function Navbar({ page, setPage }: { page: Page; setPage: (p: Page) => void }) {
         position: 'relative',
       }}>
         {/* Desktop links */}
-        <div className="nav-desktop" style={{ display: 'flex', gap: '0.3rem', alignItems: 'center' }}>
+        <div className="nav-desktop" style={{ display: 'flex', gap: '1rem', alignItems: 'center', justifyContent:'center', flexWrap:'wrap', padding:'0 0.5rem' }}>
           {links.map(([id, label], i) => (
-            <>
-              <button
-                key={id}
-                className={`nav-btn${page === id ? ' active' : ''}`}
-                onClick={() => navigate(id)}
-              >
-                {label}
-              </button>
-              {i < links.length - 1 && (
-                <span style={{ color: 'rgba(200,164,90,0.25)', fontSize: '0.7rem' }}>|</span>
-              )}
-            </>
-          ))}
-        </div>
-
-        {/* Hamburger — mobile only */}
+      <Fragment key={id}>
         <button
-          className="nav-mobile-btn"
-          onClick={() => setMenuOpen(prev => !prev)}
-          style={{
-            display: 'none', position: 'absolute', right: '1.5rem',
-            background: 'none', border: '1px solid rgba(200,164,90,0.2)',
-            padding: '0.4rem 0.6rem', cursor: 'pointer',
-            flexDirection: 'column', gap: '4px',
-          }}
+          className={`nav-btn${page === id ? ' active' : ''}`}
+          onClick={() => navigate(id)}
         >
-          {[0,1,2].map(i => (
-            <span key={i} style={{ display: 'block', width: 18, height: 1.5, background: COLORS.candle }} />
-          ))}
+        {label}
         </button>
-      </div>
 
-      {/* Mobile dropdown */}
-      {menuOpen && (
-        <div className="nav-mobile-menu" style={{
-          display: 'flex', flexDirection: 'column',
-          background: 'rgba(26,20,16,0.98)',
-          borderTop: '1px solid rgba(200,164,90,0.08)',
-          padding: '0.5rem 2rem 1rem',
-        }}>
-          {links.map(([id, label]) => (
-            <button
-              key={id}
-              className={`nav-btn${page === id ? ' active' : ''}`}
-              onClick={() => navigate(id)}
-              style={{ textAlign: 'left', padding: '0.7rem 0', borderBottom: '1px solid rgba(200,164,90,0.06)' }}
-            >
-              {label}
-            </button>
-          ))}
+        {i < links.length - 1 && (
+          <span style={{ color: 'rgba(200,164,90,0.25)', fontSize: '0.7rem' }}>|</span>
+        )}
+      </Fragment>
+      ))}
         </div>
-      )}
+
+       </div>
     </nav>
   )
 }
