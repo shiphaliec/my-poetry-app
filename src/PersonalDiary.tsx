@@ -389,6 +389,20 @@ function DiaryPoemCard({
         {poem.title}
       </div>
 
+      {/*PenName*/ }
+
+      <div
+        style={{
+          fontSize: '0.78rem',
+          color: COLORS.dim,
+          fontStyle: 'italic',
+          marginBottom: '0.5rem',
+          letterSpacing: '0.03em',
+        }}
+      >
+  — {penName}
+</div>
+
       {/* Date */}
       <div style={{
         fontFamily: "'Inconsolata', monospace",
